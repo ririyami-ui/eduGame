@@ -87,18 +87,21 @@ export const GAME_MODES: {
 ];
 
 export type Subject =
-  | "math"
-  | "science"
-  | "english"
-  | "indo"
-  | "history"
-  | "civics"
-  | "pkn"
   | "agama"
+  | "pkn"
+  | "pancasila"
+  | "indo"
+  | "math"
+  | "ipa"
+  | "science"
   | "ips"
-  | "sbdp"
+  | "english"
   | "pjok"
-  | "tematik"
+  | "informatika"
+  | "seni_budaya"
+  | "sbdp"
+  | "koding_ai"
+  | "history"
   | "geography"
   | "economics"
   | "biology"
@@ -110,18 +113,21 @@ export type Subject =
 
 
 export const SUBJECTS: { id: Subject; label: string }[] = [
-  { id: "math", label: "Matematika" },
-  { id: "science", label: "IPA / Sains" },
-  { id: "english", label: "Bahasa Inggris" },
-  { id: "indo", label: "Bahasa Indonesia" },
-  { id: "history", label: "Sejarah" },
-  { id: "civics", label: "PPKn" },
+  { id: "agama", label: "Pendidikan Agama & Budi Pekerti" },
+  { id: "pancasila", label: "Pendidikan Pancasila" },
   { id: "pkn", label: "PKn (Umum)" },
-  { id: "agama", label: "Pendidikan Agama" },
-  { id: "ips", label: "IPS" },
-  { id: "sbdp", label: "SBdP (Seni Budaya & Prakarya)" },
-  { id: "pjok", label: "PJOK / Penjasorkes" },
-  { id: "tematik", label: "Tematik (SD)" },
+  { id: "indo", label: "Bahasa Indonesia" },
+  { id: "math", label: "Matematika" },
+  { id: "ipa", label: "Ilmu Pengetahuan Alam (IPA)" },
+  { id: "science", label: "IPA / Sains (lama)" },
+  { id: "ips", label: "Ilmu Pengetahuan Sosial (IPS)" },
+  { id: "english", label: "Bahasa Inggris" },
+  { id: "pjok", label: "PJOK" },
+  { id: "informatika", label: "Informatika" },
+  { id: "seni_budaya", label: "Seni dan Prakarya / Seni Budaya" },
+  { id: "sbdp", label: "SBdP" },
+  { id: "koding_ai", label: "Koding & Kecerdasan Artifisial" },
+  { id: "history", label: "Sejarah" },
   { id: "geography", label: "Geografi" },
   { id: "economics", label: "Ekonomi" },
   { id: "biology", label: "Biologi" },

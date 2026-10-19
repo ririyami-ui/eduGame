@@ -117,16 +117,16 @@ export const SEED_SETS: QuestionSet[] = [
   }),
   makeSet({
     title: "Demokrasi & Kewarganegaraan",
-    subject: "civics",
+    subject: "pancasila",
     grade: "IX",
     description:
       "Mode 2D. Uji pemahaman siswa tentang demokrasi, Pancasila, dan hak kewarganegaraan.",
     mode: "pose-quiz-2d",
     questions: [
       makeQuestion("Dasar negara Indonesia adalah…", "Pancasila", ["UUD 1945", "Bhinneka Tunggal Ika", "NKRI"], [P.both, P.left, P.right, P.squat]),
-      makeQuestion("Silka ke-4 berkaitan dengan…", "Musyawarah untuk mufakat", ["Keadilan sosial", "Ketuhanan", "Persatuan"], [P.left, P.both, P.squat, P.right]),
-      makeQuestion("Hak warga negara yang dijamin UUD 1945 antara lain…", "Memilih pendidikan", ["Memilih presiden langsung", "Menentukan agama negara", "Menolak pajak"], [P.right, P.left, P.both, P.squat]),
-      makeQuestion("Lembaga tertinggi negara menurut UUD 1945 adalah…", "MPR", ["DPR", "MA", "MK"], [P.squat, P.both, P.left, P.right]),
+      makeQuestion("Sila ke-4 Pancasila berkaitan dengan…", "Musyawarah untuk mufakat", ["Keadilan sosial", "Ketuhanan Yang Maha Esa", "Persatuan Indonesia"], [P.left, P.both, P.squat, P.right]),
+      makeQuestion("Salah satu hak warga negara dalam UUD 1945 adalah…", "Hak untuk mendapatkan pendidikan", ["Hak memilih agama negara", "Hak menolak membayar pajak", "Hak menghapus hukum"], [P.right, P.left, P.both, P.squat]),
+      makeQuestion("Lembaga legislatif tertinggi menurut UUD 1945 adalah…", "MPR", ["DPR", "MA", "MK"], [P.squat, P.both, P.left, P.right]),
     ],
   }),
   makeSet({
