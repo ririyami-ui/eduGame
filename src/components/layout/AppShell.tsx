@@ -14,6 +14,7 @@ const NAV = [
   { href: "/dashboard/sets", label: "Bank Soal", icon: "🗂️" },
   { href: "/dashboard/media", label: "Media Library", icon: "🎨" },
   { href: "/dashboard/rekomendasi", label: "Rekomendasi", icon: "✨" },
+  { href: "/dashboard/pengaturan", label: "Pengaturan", icon: "⚙️" },
   { href: "/play", label: "Mode Main", icon: "🎮" },
 ];
 

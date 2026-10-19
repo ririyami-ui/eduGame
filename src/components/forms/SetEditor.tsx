@@ -2,12 +2,14 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { AiSoalCard } from "@/components/forms/AiSoalCard";
 import { PoseIcon } from "@/components/game/PoseIcon";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardBody, CardHeader } from "@/components/ui/Card";
 import { Field, Input, Select, Textarea } from "@/components/ui/Field";
 import { POSE_DESC, POSE_LABEL, MODE_LABEL } from "@/lib/labels";
+import type { GeneratedQuestion } from "@/lib/gemini";
 import { uid } from "@/lib/utils";
 import { GRADES, GAME_MODES, POSE_ACTIONS, SUBJECTS, type PoseAction, type QuestionSet } from "@/types";
 import { useDataStore } from "@/store/useDataStore";
@@ -70,6 +72,28 @@ export function SetEditor({
       ],
     }));
   };
+
+  const addAiQuestions = (raw: GeneratedQuestion[]) =>
+    setSet((s) => ({
+      ...s,
+      questions: [
+        ...s.questions,
+        ...raw.map((r, qi) => {
+          const poses = pickPoses((s.questions.length + qi) * 3 + 1);
+          return {
+            id: uid("q"),
+            prompt: r.prompt,
+            hint: r.hint ?? "",
+            options: r.options.slice(0, 4).map((text, i) => ({
+              id: uid("o"),
+              text,
+              pose: poses[i] ?? POSE_POOL[i],
+              isCorrect: i === r.correctIndex,
+            })),
+          };
+        }),
+      ],
+    }));
 
   const patchQuestion = (qid: string, p: Partial<QuestionSet["questions"][number]>) =>
     setSet((s) => ({
@@ -188,6 +212,12 @@ export function SetEditor({
           </Field>
         </CardBody>
       </Card>
+
+      <AiSoalCard
+        subjectLabel={SUBJECTS.find((s) => s.id === set.subject)?.label ?? set.subject}
+        grade={set.grade}
+        onQuestions={addAiQuestions}
+      />
 
       <div className="flex items-center justify-between gap-3">
         <div>

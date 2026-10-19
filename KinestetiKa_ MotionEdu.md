@@ -16,6 +16,11 @@ Membuat game edukasi dengan sensor motion tracking, untuk membuat soal interakti
 - **Tangkap & Makan** (`catch-eat-2d`): kamera langsung tanpa avatar. Jawaban melayang dengan warna diseragamkan; siswa **memegang** bola dengan telapak tangan lalu **membawanya ke mulut** untuk memakannya. Salah pegang? Kibaskan tangan untuk melepas. Benar 👑 mahkota, salah 💣 bom (dengan efek suara).
 - **Panahan** (`archery-2d`): kamera langsung tanpa avatar. Telapak tangan menjadi penanda bidik; **tahan** bidikan di dalam target sampai busur penuh, panah dilepas otomatis dari bahu menuju target yang dikunci.
 
+**Pembuat soal dengan AI (Gemini):**
+- Di **Dashboard → Pengaturan**, guru memasukkan **Gemini API key** miliknya sendiri (disimpan di `localStorage` browser) lalu memilih model **free tier**: `gemini-3.8-flash` (default), `gemini-3.6-flash`, `gemini-3.5-flash-lite`, `gemini-3.1-flash-lite`, `gemini-3-flash-preview`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`. Tersedia tombol **Uji koneksi**.
+- Di editor bank soal tersedia kartu **✨ Buat soal dengan AI**: guru menulis topik materi + jumlah soal, lalu Gemini menghasilkan soal pilihan ganda (pertanyaan, 4 opsi, jawaban benar, petunjuk). Hasilnya otomatis masuk ke daftar soal dengan pemetaan gerakan tubuh, dan masih bisa diedit.
+- Permintaan dikirim langsung dari browser ke endpoint `generativelanguage.googleapis.com` (tanpa server perantara aplikasi).
+
 ## 2. Product Goals & Success Metrics
 Tujuan utama dari KinestetiKa: MotionEdu adalah Meningkatkan retensi pembelajaran melalui pembelajaran kinestetik dengan mengubah respons fisik menjadi jawaban interaktif pada konten pendidikan berbasis 3D dan 2D.
 - **KPI 1:** User engagement rate > 20%.
@@ -38,6 +43,7 @@ Berikut adalah fitur-fitur utama yang akan diimplementasikan:
 - **Delete (P0)**: Fitur inti untuk mengelola delete.
 - **Media Library (P0)**: Fitur inti untuk mengelola media library.
 - **Recommendation System (P0)**: Fitur inti untuk mengelola recommendation system.
+- **AI Question Generator (P1)**: Membuat soal pilihan ganda otomatis dari topik materi memakai Gemini API dengan API key milik guru (free tier).
 
 ## 6. Detailed User Stories
 - Sebagai **Sekolah Menengah Pertama (SMP) dan pusat pelatihan inklusif yang membutuhkan metode pembelajaran aktif bagi siswa usia 12-15 tahun dengan gaya belajar kinestetik.**, saya ingin menggunakan fitur **Social Login** agar bisa mengelola social login dengan efisien dan tanpa hambatan.
@@ -47,6 +53,7 @@ Berikut adalah fitur-fitur utama yang akan diimplementasikan:
 - Sebagai **Sekolah Menengah Pertama (SMP) dan pusat pelatihan inklusif yang membutuhkan metode pembelajaran aktif bagi siswa usia 12-15 tahun dengan gaya belajar kinestetik.**, saya ingin menggunakan fitur **Delete** agar bisa mengelola delete dengan efisien dan tanpa hambatan.
 - Sebagai **Sekolah Menengah Pertama (SMP) dan pusat pelatihan inklusif yang membutuhkan metode pembelajaran aktif bagi siswa usia 12-15 tahun dengan gaya belajar kinestetik.**, saya ingin menggunakan fitur **Media Library** agar bisa mengelola media library dengan efisien dan tanpa hambatan.
 - Sebagai **Sekolah Menengah Pertama (SMP) dan pusat pelatihan inklusif yang membutuhkan metode pembelajaran aktif bagi siswa usia 12-15 tahun dengan gaya belajar kinestetik.**, saya ingin menggunakan fitur **Recommendation System** agar bisa mengelola recommendation system dengan efisien dan tanpa hambatan.
+- Sebagai **guru SMP**, saya ingin **membuat soal otomatis dengan AI (Gemini)** berdasarkan topik materi, agar proses pembuatan bank soal lebih cepat, dan hasilnya tetap bisa saya edit sebelum dipakai.
 - Sebagai **Admin**, saya ingin memantau penggunaan aplikasi untuk memastikan performa sistem.
 
 ## 7. Functional Requirements
