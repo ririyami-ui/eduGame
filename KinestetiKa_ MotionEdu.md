@@ -13,6 +13,8 @@ Membuat game edukasi dengan sensor motion tracking, untuk membuat soal interakti
 - **Pose Quiz 2D** (`pose-quiz-2d`): empat kartu jawaban, masing-masing dipetakan ke satu gerakan tubuh. Siswa menahan pose ±0.9 detik untuk mengunci jawaban.
 - **Motion Catch 3D** (`motion-catch-3d`): karakter 3D digerakkan dengan condong badan. Bola jawaban berjatuhan — tangkap bola yang benar.
 - **Ambil & Tempatkan 3D** (`answer-slot-3d`): soal tampil, bola jawaban berjatuhan untuk **diambil** (berdiri di bawahnya), lalu dibawa ke **Tempat Jawaban** dan dilepaskan dengan mengangkat kedua tangan.
+- **Tangkap & Makan** (`catch-eat-2d`): kamera langsung tanpa avatar. Jawaban melayang dengan warna diseragamkan; siswa **memegang** bola dengan telapak tangan lalu **membawanya ke mulut** untuk memakannya. Salah pegang? Kibaskan tangan untuk melepas. Benar 👑 mahkota, salah 💣 bom (dengan efek suara).
+- **Panahan** (`archery-2d`): kamera langsung tanpa avatar. Telapak tangan menjadi penanda bidik; **tahan** bidikan di dalam target sampai busur penuh, panah dilepas otomatis dari bahu menuju target yang dikunci.
 
 ## 2. Product Goals & Success Metrics
 Tujuan utama dari KinestetiKa: MotionEdu adalah Meningkatkan retensi pembelajaran melalui pembelajaran kinestetik dengan mengubah respons fisik menjadi jawaban interaktif pada konten pendidikan berbasis 3D dan 2D.
