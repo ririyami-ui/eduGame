@@ -73,9 +73,10 @@ export function SetEditor({
     }));
   };
 
-  const addAiQuestions = (raw: GeneratedQuestion[]) =>
+  const addAiQuestions = (raw: GeneratedQuestion[], suggestedTitle?: string) =>
     setSet((s) => ({
       ...s,
+      title: s.title.trim() ? s.title : suggestedTitle?.trim() || s.title,
       questions: [
         ...s.questions,
         ...raw.map((r, qi) => {

@@ -22,7 +22,7 @@ export function AiSoalCard({
 }: {
   subjectLabel: string;
   grade: string;
-  onQuestions: (questions: GeneratedQuestion[]) => void;
+  onQuestions: (questions: GeneratedQuestion[], suggestedTitle?: string) => void;
 }) {
   const [configured, setConfigured] = useState(false);
   const [modelId, setModelId] = useState("");
@@ -67,7 +67,7 @@ export function AiSoalCard({
     setDone(null);
     try {
       const qs = await generateQuestions({ topic: topic.trim(), count, subjectLabel, grade });
-      onQuestions(qs);
+      onQuestions(qs, topic.trim());
       setDone(`${qs.length} soal ditambahkan ke daftar soal di bawah — cek ulang, lalu atur gerakannya.`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Gagal membuat soal.");
