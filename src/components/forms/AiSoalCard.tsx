@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardBody, CardHeader } from "@/components/ui/Card";
 import { Field, Input, Select } from "@/components/ui/Field";
 import { loadGeminiSettings } from "@/lib/aiSettings";
-import { generateQuestions, type GeneratedQuestion } from "@/lib/gemini";
+import { generateQuestions, testGeminiConnection, type GeneratedQuestion } from "@/lib/gemini";
 
 const COUNTS = [3, 4, 5, 6, 8, 10];
 
@@ -37,6 +37,25 @@ export function AiSoalCard({
     setConfigured(s.apiKey.trim().length > 0);
     setModelId(s.model);
   }, []);
+
+  const testConnection = async () => {
+    const s = loadGeminiSettings();
+    if (!s.apiKey.trim()) {
+      setError("API key belum diisi. Atur dulu di Pengaturan.");
+      return;
+    }
+    setBusy(true);
+    setError(null);
+    setDone(null);
+    try {
+      const { reply } = await testGeminiConnection();
+      setDone(`Koneksi OK — balasan: “${reply}”. Siap generate soal.`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Gagal menghubungi Gemini.");
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const run = async () => {
     if (!topic.trim()) {
@@ -119,6 +138,9 @@ export function AiSoalCard({
         <div className="flex flex-wrap items-center gap-3">
           <Button onClick={() => void run()} disabled={busy}>
             {busy ? "Gemini sedang membuat soal…" : "✨ Generate soal"}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={() => void testConnection()} disabled={busy}>
+            Uji koneksi
           </Button>
           <span className="text-[11px] text-muted">
             Soal hasil AI tetap bisa diedit sebelum disimpan.
