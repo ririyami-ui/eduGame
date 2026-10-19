@@ -93,7 +93,21 @@ export type Subject =
   | "indo"
   | "history"
   | "civics"
+  | "pkn"
+  | "agama"
+  | "ips"
+  | "sbdp"
+  | "pjok"
+  | "tematik"
+  | "geography"
+  | "economics"
+  | "biology"
+  | "physics"
+  | "chemistry"
+  | "art"
+  | "music"
   | "other";
+
 
 export const SUBJECTS: { id: Subject; label: string }[] = [
   { id: "math", label: "Matematika" },
@@ -102,10 +116,24 @@ export const SUBJECTS: { id: Subject; label: string }[] = [
   { id: "indo", label: "Bahasa Indonesia" },
   { id: "history", label: "Sejarah" },
   { id: "civics", label: "PPKn" },
+  { id: "pkn", label: "PKn (Umum)" },
+  { id: "agama", label: "Pendidikan Agama" },
+  { id: "ips", label: "IPS" },
+  { id: "sbdp", label: "SBdP (Seni Budaya & Prakarya)" },
+  { id: "pjok", label: "PJOK / Penjasorkes" },
+  { id: "tematik", label: "Tematik (SD)" },
+  { id: "geography", label: "Geografi" },
+  { id: "economics", label: "Ekonomi" },
+  { id: "biology", label: "Biologi" },
+  { id: "physics", label: "Fisika" },
+  { id: "chemistry", label: "Kimia" },
+  { id: "art", label: "Seni" },
+  { id: "music", label: "Musik" },
   { id: "other", label: "Lainnya" },
 ];
 
-export const GRADES = ["VII", "VIII", "IX", "Umum"];
+export const GRADES = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "Umum"];
+
 
 export interface AnswerOption {
   id: string;
