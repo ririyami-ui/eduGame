@@ -4,6 +4,7 @@ import Link from "next/link";
 import { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useGLTF } from "@react-three/drei";
 import { CameraStage } from "@/components/game/CameraStage";
 import { LabelBillboard } from "@/components/game/LabelBillboard";
 import { Button } from "@/components/ui/Button";
@@ -469,6 +470,8 @@ export default function Play3DPage({ params }: { params: Promise<{ id: string }>
 
           <Stage />
 
+          <Player engine={engine} />
+
           <Scene
             engine={engine}
             orbs={orbs}
@@ -518,6 +521,21 @@ export default function Play3DPage({ params }: { params: Promise<{ id: string }>
         </div>
       </div>
     </div>
+  );
+}
+
+const PLAYER_Z = -2;
+const PLAYER_SCALE = 1.5;
+
+function Player({ engine }: { engine: React.RefObject<Engine> }) {
+  const gltf = useGLTF("/models/humanoid.glb");
+  const { playerX, jumpY } = engine.current;
+  const rotY = Math.atan2(engine.current.keyDir, 1) * 0.5;
+
+  return (
+    <group position={[playerX, jumpY, PLAYER_Z]} rotation={[0, rotY, 0]}>
+      <primitive object={gltf.scene} scale={PLAYER_SCALE} />
+    </group>
   );
 }
 
